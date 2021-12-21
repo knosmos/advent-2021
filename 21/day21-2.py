@@ -10,14 +10,29 @@ def getRolls():
 
 mem = {}
 
-def rfn(pos1, pos2, score1, score2):
+def rfn(pos, score, p):
     # Memoization
-    a = (pos1, pos2, score1, score2)
+    a = (pos, score, p)
     if a in mem: return mem[a]
-    
-    for roll in getRolls():
-        # Check end condition
-        if max(score1, score2) >= 21:
-            mem[a] = 
 
-    # Recurse
+    wins = [0,0]
+    for roll in getRolls():
+        npos = list(pos)
+        npos[p] += roll
+        npos[p] = (npos[p]-1)%10+1
+        npos = tuple(npos)
+        
+        nscore = list(score)
+        nscore[p] += npos[p]
+        nscore = tuple(nscore)
+        
+        # Check end condition
+        if max(nscore) >= 21:
+            wins[nscore.index(max(nscore))] += 1
+        else:
+            # Recurse
+            i,j = rfn(npos, nscore, (p+1)%2)
+            wins = [wins[0]+i, wins[1]+j]
+    mem[a] = wins
+    return wins
+print(max(rfn(tuple(pos), (0,0), 0)))
