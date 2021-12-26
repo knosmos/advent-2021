@@ -5,7 +5,7 @@ guarenteed to be optimal or efficient, as they have (for the most part)
 been included unedited.
 
 ## Visualizations
-Some solutions (currently days 9, 10, 11, and 25) also
+Some solutions (currently days 9, 10, 11, 20, and 25) also
 include visualizations built with pygame. Screenshots are below:
 <br><br>
 <img src=https://user-images.githubusercontent.com/30610197/147418591-7105a03e-bb25-4d7d-8a2d-76907082ced2.png height = 200px>
